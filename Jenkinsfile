@@ -3,13 +3,13 @@ pipeline {
 
     environment {
         DOCKER_HUB_CREDENTIALS = credentials('dockerhub-creds') // add in Jenkins credentials
-        IMAGE_NAME = "your-dockerhub-username/student-app"
+        IMAGE_NAME = "Romeokamboj66/student-project"
     }
 
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/your-username/student-app.git'
+                git 'https://github.com/Romeokamboj66/student-project.git'
             }
         }
 
@@ -41,7 +41,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                sh 'docker run -d -p 5000:5000 --name student-app $IMAGE_NAME:latest'
+                sh 'docker run -d -p 5000:5000 --name student-project $IMAGE_NAME:latest'
             }
         }
     }
